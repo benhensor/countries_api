@@ -3,7 +3,7 @@ import ThemeContext from '../ThemeContext'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons'
 
-const Filter = () => {
+const Filter = ({ setFilter }) => {
 
   const { theme } = useContext(ThemeContext)
   const [selected, setSelected] = useState('Filter by Region')
@@ -14,8 +14,15 @@ const Filter = () => {
   }
 
   const handleOptionSelect = (region) => {
+    if (region === 'Filter by Region') {
+      setFilter('')
+      setFilterClicked(!filterClicked)
+      return
+    }
+
     setSelected(region)
     setFilterClicked(!filterClicked)
+    setFilter(region)
   }
 
   return (
@@ -26,6 +33,7 @@ const Filter = () => {
       </button>
       {filterClicked && (
         <div className={`filter-options ${theme}`}>
+          <button onClick={() => handleOptionSelect('Filter by Region')}>Filter by Region</button>
           <button onClick={() => handleOptionSelect('Africa')}>Africa</button>
           <button onClick={() => handleOptionSelect('America')}>America</button>
           <button onClick={() => handleOptionSelect('Asia')}>Asia</button>

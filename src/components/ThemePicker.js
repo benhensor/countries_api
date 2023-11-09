@@ -11,13 +11,13 @@ const ThemePicker = () => {
     const { theme, toggleTheme } = useContext(ThemeContext)
 
     const moon = theme === 'light' 
-        ? <FontAwesomeIcon icon={faMoonSolid} style={{ fontSize: 16 }} />
-        : <FontAwesomeIcon icon={faMoonRegular} style={{ fontSize: 16 }}/>
+        ? <FontAwesomeIcon icon={faMoonRegular} style={{ fontSize: 16 }} />
+        : <FontAwesomeIcon icon={faMoonSolid} style={{ fontSize: 16 }}/>
 
   return (
     <section className={`theme-picker ${theme}`}>
         <button onClick={toggleTheme}>
-            <span>{moon}</span><span>{theme === 'light' ? 'Dark' : 'Light'}</span> <span>Mode</span>
+            <span>{moon}</span><span>{theme === 'light' ? 'Light' : 'Dark'}</span> <span>Mode</span>
         </button>
     </section>
   )

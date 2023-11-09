@@ -25,15 +25,16 @@ body {
   margin: 0;
   font-family: 'Nunito', sans-serif;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  width: 100vw;
-  height: 100vh;
-  
+  -moz-osx-font-smoothing: grayscale; 
 }
 
 .app {
-  width: 100%;
-  height: 100%;
+  min-height: 100vh;
+  background-color: var(--veryLightGray);
+}
+
+.app.dark {
+  background-color: var(--veryDarkBlue);
 }
 
 /* Header Styles */
@@ -51,11 +52,6 @@ header.dark {
   background-color: var(--darkBlue);
   color: var(--white);
 }
-
-header h1 {
-
-}
-
 
 /* Theme Picker Styles */
 
@@ -96,14 +92,13 @@ header h1 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 40px 5%;
+  padding: 50px 5%;
   width: 100%;
-  height: 100%;
   color: var(--darkestBlue);
 }
 
 .controls.dark {
-  background-color: var(--darkBlue);
+  background-color: var(--veryDarkBlue);
   color: var(--white);
 }
 
@@ -201,14 +196,13 @@ header h1 {
   background-color: var(--white);
   border-radius: 5px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
-  padding: 10px 0;
 }
 
 .filter-options button {
   border: none;
   background-color: transparent;
   text-align: left;
-  padding: 10px 30px;
+  padding: 15px 30px;
 }
 
 .filter-options button:hover {
@@ -236,12 +230,10 @@ header h1 {
   justify-items: center;
   gap: 50px;
   padding: 0 5%;
-  overflow: hidden;
-  height: 100%;
 }
 
 .countries-container.dark {
-  background-color: var(--darkBlue);
+  background-color: var(--veryDarkBlue);
   color: var(--white);
 }
 
@@ -252,15 +244,20 @@ header h1 {
   align-items: flex-start;
   border-radius: 5px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+  transition: 0.3s ease-out;
 }
 
-.countries-container.dark .country-container {
-  background-color: var(--white);
+.country-container:hover {
+  transform: scale(1.1);
+}
+
+.countries-container.dark {
+  background-color: var(--veryDarkBlue);
   color: var(--darkestBlue);
 }
 
 .country-container img {
-  width: 100%;
+  width: 250px;
   height: 150px;
   border-radius: 5px 5px 0 0;
 }
@@ -268,13 +265,13 @@ header h1 {
 .country-container h1 {
   font-size: 16px;
   font-weight: 800;
-  margin: 20px 20px;
+  margin: 20px 20px 10px 20px;
 }
 
 .country-details {
   display: flex;
   flex-direction: column;
-  margin: 20px 20px;
+  margin: 10px 20px 40px 20px;
   font-size: var(--fs-homepageItems)
 }
 
@@ -291,4 +288,113 @@ header h1 {
   color: var(--white);
 }
 
+@media screen and (max-width: 611px) {
+  .countries-container {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+  .country-container img {
+    width: 300px;
+    height: 150px;
+    border-radius: 5px 5px 0 0;
+  }
+}
+
 /* CountryDetail Styles */
+
+.detail-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100vh;
+  padding: 70px 5% 0 5%;
+}
+
+.detail-container.dark {
+  background-color: var(--veryDarkBlue);
+  color: var(--white);
+}
+
+.detail-container .back-button {
+  width: 150px;
+  padding: 15px 20px;
+  border-radius: 5px;
+  border: none;
+  font-size: 16px;
+  background-color: var(--veryLightGray);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+  cursor: pointer;
+  transition: 0.3s ease-out;
+}
+
+.detail-container .back-button:hover {
+  background-color: var(--darkGray);
+}
+
+.detail-container.dark .back-button {
+  background-color: var(--darkBlue);
+  color: var(--white);
+}
+
+.back-icon {
+  margin-right: 10px;
+}
+
+.detail-container img {
+  width: 600px;
+  height: auto;
+  border-radius: 5px;
+  margin-right: 100px;
+}
+
+.detail-card {
+  width: 100%;
+  height: 100%;
+  height: auto;
+  display: flex;
+  margin-top: 70px;
+  align-items: center;
+  font-size: var(--fs-detailPage);
+}
+
+.detail-details {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.detail-details h1 {
+  margin-top: 50px;
+  margin-bottom: 30px;
+}
+
+.detail-information {
+  line-height: 1.6rem;
+  margin-bottom: 30px;
+}
+
+.detail-borders {
+  margin-bottom: 50px;
+}
+
+.detail-borders button {
+  margin-right: 10px;
+  margin-bottom: 10px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  font-size: 16px;
+  background-color: var(--veryLightGray);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+  cursor: pointer;
+  transition: 0.3s ease-out;
+}
+
+.detail-container.dark .detail-borders button {
+  background-color: var(--darkBlue);
+  color: var(--white);
+}
+
+.detail-container span {
+  font-weight: 600;
+}

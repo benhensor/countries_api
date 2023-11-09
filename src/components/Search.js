@@ -8,19 +8,26 @@ const Search = ({ setSearch }) => {
 
   const { theme } = useContext(ThemeContext)
 
+  const handleInputChange = (e) => {
+    const value = e.target.value
+    setSearch(value)
+  }
+
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter') {
+      e.preventDefault()
+      setSearch(e.target.value)
+    }
+  }
+
   return (
     <div className={`search-input ${theme}`}>
       <FontAwesomeIcon icon={faMagnifyingGlass} style={{ fontSize: 16 }} className={`search-icon ${theme}`}/>
       <input 
         type="text" 
         placeholder="Search for a country..." 
-        onChange={(e) => setSearch(e.target.value)} 
-        onKeyDown={(e) => { 
-          if (e.key === 'Enter') { 
-            e.preventDefault();
-            setSearch(e.target.value)
-            console.log(e.target.value)
-          }}}/>
+        onChange={handleInputChange} 
+        onKeyDown={handleKeyDown}/>
     </div>
   )
 }
