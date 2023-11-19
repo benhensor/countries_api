@@ -22,7 +22,6 @@
 }
 
 body {
-  margin: 0;
   font-family: 'Nunito', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; 
@@ -136,6 +135,7 @@ header.dark {
 .search-input input {
   height: 100%;
   width: 100%;
+  padding: 0 20px;
   border: none;
 }
 
@@ -243,7 +243,9 @@ header.dark {
   justify-content: space-between;
   align-items: flex-start;
   border-radius: 5px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+  padding: 20px;
+  background: var(--veryLightGray);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
   transition: 0.3s ease-out;
 }
 
@@ -265,13 +267,13 @@ header.dark {
 .country-container h1 {
   font-size: 16px;
   font-weight: 800;
-  margin: 20px 20px 10px 20px;
+  margin: 20px 0 10px 0;
 }
 
 .country-details {
   display: flex;
   flex-direction: column;
-  margin: 10px 20px 40px 20px;
+  margin: 10px 0 40px 0;
   font-size: var(--fs-homepageItems)
 }
 
@@ -359,6 +361,7 @@ header.dark {
 .detail-details {
   display: flex;
   height: 100%;
+  min-width: 400px;
   flex-direction: column;
   justify-content: space-between;
 }
@@ -402,7 +405,7 @@ header.dark {
   font-weight: 600;
 }
 
-@media screen and (max-width: 795px) {
+@media screen and (max-width: 1440px) {
   .detail-container {
     padding: 70px 5% 50px 5%;
   }

@@ -3,13 +3,14 @@ import ThemeContext from '../ThemeContext'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowLeft } from '@fortawesome/free-solid-svg-icons'
 
-const CountryDetailCard = ({ selectedCountry, setSelectedCountry, borderingCountries, setBorderingCountries, borderingCountryClick }) => {
+const CountryDetailCard = ({ setSearch, selectedCountry, setSelectedCountry, borderingCountries, setBorderingCountries, borderingCountryClick }) => {
 
   const { theme } = useContext(ThemeContext)
 
   function handleBackClick() {
     setSelectedCountry(null)
     setBorderingCountries([])
+    setSearch('')
   }
 
   return (

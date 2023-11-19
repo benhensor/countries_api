@@ -116,6 +116,7 @@ function App() {
           </>
         ) : (
           <CountryDetailCard 
+            setSearch={setSearch}
             selectedCountry={selectedCountry} 
             setSelectedCountry={setSelectedCountry} 
             borderingCountries={borderingCountries} 
